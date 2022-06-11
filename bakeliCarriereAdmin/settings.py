@@ -38,9 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'eleve',
-    'etablissement',
-    'entreprise',
+    'bakeliGestion',
+   
 ]
 
 MIDDLEWARE = [
@@ -79,8 +78,12 @@ WSGI_APPLICATION = 'bakeliCarriereAdmin.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bakeli',
+        'USER': 'aboudiop',
+        'PASSWORD': 'aboudiop',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -149,6 +152,5 @@ JAZZMIN_SETTINGS = {
 
 }
 
-JAZZMIN_UI_TWEAKS = {
-    "theme": "simplex",
-}
+
+
