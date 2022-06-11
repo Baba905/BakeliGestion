@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'bakeliCarriereAdmin.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bakeli',
+        'NAME': 'bakeligestion',
         'USER': 'aboudiop',
         'PASSWORD': 'aboudiop',
         'HOST': 'localhost',
