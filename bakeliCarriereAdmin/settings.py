@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-b1vsg)e)js&wg5zj$go=j&+2557yko5xg4#)9q7^y6(ssw#yv=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['djangoadm.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'bakeliGestion',
+
    
 ]
 
@@ -79,7 +81,7 @@ WSGI_APPLICATION = 'bakeliCarriereAdmin.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bakeligestion  ',
+        'NAME': 'bakeliadmin',
         'USER': 'aboudiop',
         'PASSWORD': 'aboudiop',
         'HOST': 'localhost',
@@ -152,5 +154,12 @@ JAZZMIN_SETTINGS = {
 
 }
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 

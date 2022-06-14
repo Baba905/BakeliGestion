@@ -11,7 +11,7 @@ class Offre(models.Model):
     titre= models.CharField(max_length=255)
     date= models.DateTimeField()
     details = models.TextField()
-
+    entreprise = models.ForeignKey('Entreprise', on_delete= models.CASCADE)
     def __str__(self) -> str:
         return self.titre
     
@@ -33,7 +33,7 @@ class Entreprise(models.Model):
     adresse= models.CharField(max_length=255)
     numeroSiret = models.IntegerField()
     secteur= models.CharField(max_length=255)
-    offre= models.ForeignKey('Offre', on_delete=models.CASCADE)
+   
 
     def __str__(self) -> str:
         return self.nom   
