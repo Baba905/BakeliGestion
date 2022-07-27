@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from telnetlib import LOGOUT
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'bakeliGestion',
-    'bakeliAPI',
    
 ]
 
@@ -59,7 +59,7 @@ ROOT_URLCONF = 'bakeliCarriereAdmin.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'bakeliGestion/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'bakeliCarriereAdmin.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bakeliadmin',
+        'NAME': 'bakeli',
         'USER': 'aboudiop',
         'PASSWORD': 'aboudiop',
         'HOST': 'localhost',
@@ -108,6 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL ='bakeliGestion.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -162,4 +163,10 @@ REST_FRAMEWORK = {
     ]
 }
 
+LOGIN_REDIRECT_URL='home'
+LOGOUT_REDIRECT_URL='home'
+
+DATE_INPUT_FORMATS= [
+    '%Y-%m-%d',  # '2006-10-25'
+]
 

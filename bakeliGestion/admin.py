@@ -1,5 +1,8 @@
 from django.contrib import admin
-from bakeliGestion.models import Eleve,Entreprise,Offre,Etablissement#,Postuler
+from bakeliGestion.models import Eleve,Entreprise,Offre,Etablissement, User
+from django.contrib.auth.admin import UserAdmin
+
+
 
 class EleveAdmin(admin.ModelAdmin):
     list_display = ('nom', 'prenom', 'niveau')
@@ -20,4 +23,5 @@ admin.site.register(Etablissement,EtablissementAdmin)
 admin.site.register(Eleve,EleveAdmin)
 admin.site.register(Entreprise,EntrepriseAdmin)
 admin.site.register(Offre,OffreAdmin)
+admin.site.register(User,UserAdmin)
 #admin.site.register(Postuler,PostulerAdmin)

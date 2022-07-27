@@ -1,0 +1,31 @@
+
+{% block content %}
+
+    <p> Bienvenue page d'accueil Bakeli</p>
+    
+    {% if user.is_authenticated %}
+     <a href="{% url 'logout' %}">Log out</a> 
+     {% else %}
+      <a href="{% url 'login' %}">Log in</a> 
+      <a href="{% url 'signup' %}"> Sign up</a>
+     {% endif%}
+    
+    <p>Total conneted user :{{ count }}</p>
+   
+    
+    {% if user.is_authenticated %}
+        <P>User {{ user.username }} is conneted </P>
+        <p>{{ offres }}</p>
+        {% if  user.user_type == 2 %}
+            <p>Bonne condition</p>
+            {% for offre in  offres  %}
+            <p> {{ offre.titre}},{{ offre.date}} </p>
+            <p> Sortie boucle</p>
+            {% endfor %}
+        {% endif %}
+        <p> Finito</p>
+    {% else %}
+        <P>Welcome to the visitor</P>
+    {% endif %}
+
+{% endblock %}
